@@ -43,10 +43,10 @@ Source(master) / simulation(slave)
     ![cofig_4](./waveform/config_write_4.png)
     ![cofig_5](./waveform/config_write_5.png)
 - Timing
-    > \# of clock cycles from ap_start to ap_done
-    > period: 10 [ns]
-    > Timing: 641.775[us] - 1.425[us] = 640.35 [us]
-    > \# of clock cycles = 640.35 [us] / 10 [ns] = 64035 [cycles]
+    > \# of clock cycles from ap_start to ap_done  
+    > period: 10 [ns]  
+    > Timing: 641.775[us] - 1.425[us] = 640.35 [us]  
+    > \# of clock cycles = 640.35 [us] / 10 [ns] = 64035 [cycles]  
     
     ![clock_cycle](./waveform/clock_cycle.png)
 - Xn stream-in, and Yn stream-out
