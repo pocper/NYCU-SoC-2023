@@ -20,7 +20,7 @@
 ### Circuit
 Input: data(X[n])/coefficient(a[n])/data length/ap_start  
 Process: Finite Inpulse Response(N=11)  
-```$Y[n] = \sum{(a[n-11]*X[n])}$```  
+$$Y[n] = \sum{(a[n-11]*X[n])}$$ 
 Output: data(Yn)/ap_start/ap_idle/ap_done  
 Source(master) / simulation(slave)  
 - Data  
