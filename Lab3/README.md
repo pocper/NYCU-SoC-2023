@@ -47,6 +47,7 @@ Source(master) / simulation(slave)
     > period: 10 [ns]
     > Timing: 641.775[us] - 1.425[us] = 640.35 [us]
     > \# of clock cycles = 640.35 [us] / 10 [ns] = 64035 [cycles]
+    
     ![clock_cycle](./waveform/clock_cycle.png)
 - Xn stream-in, and Yn stream-out
     ![streamIn-1](./waveform/data_in_1.png)
