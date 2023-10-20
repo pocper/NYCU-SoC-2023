@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Sun Oct  8 22:51:31 2023
+| Date         : Fri Oct 20 21:41:42 2023
 | Host         : DESKTOP-DJU5NF9 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file D:/vivado/Lab3/timing_report.txt
 | Design       : fir
@@ -51,8 +51,8 @@ Table of Contents
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
 4. checking unconstrained_internal_endpoints (0)
-5. checking no_input_delay (160)
-6. checking no_output_delay (164)
+5. checking no_input_delay (159)
+6. checking no_output_delay (166)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -82,9 +82,9 @@ Table of Contents
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (160)
+5. checking no_input_delay (159)
 --------------------------------
- There are 160 input ports with no input delay specified. (HIGH)
+ There are 159 input ports with no input delay specified. (HIGH)
 
 araddr[0]
 araddr[10]
@@ -179,7 +179,6 @@ ss_tdata[6]
 ss_tdata[7]
 ss_tdata[8]
 ss_tdata[9]
-ss_tlast
 ss_tvalid
 tap_Do[0]
 tap_Do[10]
@@ -250,9 +249,9 @@ wvalid
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (164)
+6. checking no_output_delay (166)
 ---------------------------------
- There are 164 ports with no output delay specified. (HIGH)
+ There are 166 ports with no output delay specified. (HIGH)
 
 arready
 awready
@@ -370,8 +369,10 @@ sm_tdata[9]
 sm_tlast
 sm_tvalid
 ss_tready
+tap_A[0]
 tap_A[10]
 tap_A[11]
+tap_A[1]
 tap_A[2]
 tap_A[3]
 tap_A[4]
@@ -462,7 +463,7 @@ wready
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      6.111        0.000                      0                  336        0.137        0.000                      0                  336        4.500        0.000                       0                   191  
+      6.111        0.000                      0                  340        0.137        0.000                      0                  340        4.500        0.000                       0                   193  
 
 
 All user specified timing constraints are met.
@@ -485,7 +486,7 @@ axis_clk  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-axis_clk            6.111        0.000                      0                  336        0.137        0.000                      0                  336        4.500        0.000                       0                   191  
+axis_clk            6.111        0.000                      0                  340        0.137        0.000                      0                  340        4.500        0.000                       0                   193  
 
 
 ------------------------------------------------------------------------------------------------
@@ -576,7 +577,7 @@ Slack (MET) :             6.111ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.sm_tdata_reg[1]/Q
@@ -631,7 +632,7 @@ Slack (MET) :             6.111ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[31]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
@@ -642,7 +643,7 @@ Slack (MET) :             6.111ns  (required time - arrival time)
   -------------------------------------------------------------------
                          slack                                  6.111    
 
-Slack (MET) :             6.220ns  (required time - arrival time)
+Slack (MET) :             6.228ns  (required time - arrival time)
   Source:                 genblk1.sm_tdata_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.sm_tdata_reg[27]/D
@@ -650,7 +651,7 @@ Slack (MET) :             6.220ns  (required time - arrival time)
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.644ns  (logic 2.529ns (69.402%)  route 1.115ns (30.598%))
+  Data Path Delay:        3.636ns  (logic 2.521ns (69.334%)  route 1.115ns (30.666%))
   Logic Levels:           9  (CARRY4=7 LUT2=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
@@ -673,7 +674,7 @@ Slack (MET) :             6.220ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.sm_tdata_reg[1]/Q
@@ -710,8 +711,8 @@ Slack (MET) :             6.220ns  (required time - arrival time)
                                                       0.331     5.175 r  genblk1.sm_tdata_reg[27]_i_2/O[3]
                          net (fo=1, unplaced)         0.618     5.793    in14[27]
                                                                       r  genblk1.sm_tdata[27]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.307     6.100 r  genblk1.sm_tdata[27]_i_1/O
-                         net (fo=1, unplaced)         0.000     6.100    genblk1.sm_tdata[27]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.299     6.092 r  genblk1.sm_tdata[27]_i_1/O
+                         net (fo=1, unplaced)         0.000     6.092    genblk1.sm_tdata[27]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[27]/D
   -------------------------------------------------------------------    -------------------
 
@@ -724,27 +725,27 @@ Slack (MET) :             6.220ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[27]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_D)        0.044    12.320    genblk1.sm_tdata_reg[27]
   -------------------------------------------------------------------
                          required time                         12.320    
-                         arrival time                          -6.100    
+                         arrival time                          -6.092    
   -------------------------------------------------------------------
-                         slack                                  6.220    
+                         slack                                  6.228    
 
-Slack (MET) :             6.303ns  (required time - arrival time)
-  Source:                 genblk1.data_n_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             6.326ns  (required time - arrival time)
+  Source:                 genblk1.data_n_reg[1]/C
+                            (rising edge-triggered cell FDPE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.data_A_reg[11]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.315ns  (logic 1.045ns (31.523%)  route 2.270ns (68.477%))
-  Logic Levels:           3  (LUT4=2 LUT6=1)
+  Data Path Delay:        3.292ns  (logic 1.045ns (31.744%)  route 2.247ns (68.256%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -766,20 +767,20 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_n_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDPE                                         r  genblk1.data_n_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_n_reg[2]/Q
-                         net (fo=42, unplaced)        0.819     3.753    in10[4]
+                         FDPE (Prop_fdpe_C_Q)         0.478     2.934 r  genblk1.data_n_reg[1]/Q
+                         net (fo=43, unplaced)        0.820     3.754    in10[3]
                                                                       r  genblk1.data_n[3]_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 f  genblk1.data_n[3]_i_3/O
-                         net (fo=4, unplaced)         0.473     4.545    genblk1.data_n[3]_i_3_n_0
-                                                                      f  genblk1.data_n[3]_i_1/I1
-                         LUT6 (Prop_lut6_I1_O)        0.124     4.669 r  genblk1.data_n[3]_i_1/O
-                         net (fo=5, unplaced)         0.477     5.146    genblk1.data_n
-                                                                      r  genblk1.data_A[11]_i_1/I0
-                         LUT4 (Prop_lut4_I0_O)        0.124     5.270 r  genblk1.data_A[11]_i_1/O
-                         net (fo=5, unplaced)         0.501     5.771    genblk1.data_A[11]_i_1_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.319     4.073 f  genblk1.data_n[3]_i_3/O
+                         net (fo=5, unplaced)         0.477     4.550    genblk1.data_n[3]_i_3_n_0
+                                                                      f  genblk1.data_A[11]_i_3/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.674 r  genblk1.data_A[11]_i_3/O
+                         net (fo=1, unplaced)         0.449     5.123    genblk1.data_A[11]_i_3_n_0
+                                                                      r  genblk1.data_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.247 r  genblk1.data_A[11]_i_1/O
+                         net (fo=5, unplaced)         0.501     5.748    genblk1.data_A[11]_i_1_n_0
                          FDCE                                         r  genblk1.data_A_reg[11]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -792,27 +793,27 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.data_A_reg[11]
   -------------------------------------------------------------------
                          required time                         12.074    
-                         arrival time                          -5.771    
+                         arrival time                          -5.748    
   -------------------------------------------------------------------
-                         slack                                  6.303    
+                         slack                                  6.326    
 
-Slack (MET) :             6.303ns  (required time - arrival time)
-  Source:                 genblk1.data_n_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             6.326ns  (required time - arrival time)
+  Source:                 genblk1.data_n_reg[1]/C
+                            (rising edge-triggered cell FDPE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.data_A_reg[2]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.315ns  (logic 1.045ns (31.523%)  route 2.270ns (68.477%))
-  Logic Levels:           3  (LUT4=2 LUT6=1)
+  Data Path Delay:        3.292ns  (logic 1.045ns (31.744%)  route 2.247ns (68.256%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -834,20 +835,20 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_n_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDPE                                         r  genblk1.data_n_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_n_reg[2]/Q
-                         net (fo=42, unplaced)        0.819     3.753    in10[4]
+                         FDPE (Prop_fdpe_C_Q)         0.478     2.934 r  genblk1.data_n_reg[1]/Q
+                         net (fo=43, unplaced)        0.820     3.754    in10[3]
                                                                       r  genblk1.data_n[3]_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 f  genblk1.data_n[3]_i_3/O
-                         net (fo=4, unplaced)         0.473     4.545    genblk1.data_n[3]_i_3_n_0
-                                                                      f  genblk1.data_n[3]_i_1/I1
-                         LUT6 (Prop_lut6_I1_O)        0.124     4.669 r  genblk1.data_n[3]_i_1/O
-                         net (fo=5, unplaced)         0.477     5.146    genblk1.data_n
-                                                                      r  genblk1.data_A[11]_i_1/I0
-                         LUT4 (Prop_lut4_I0_O)        0.124     5.270 r  genblk1.data_A[11]_i_1/O
-                         net (fo=5, unplaced)         0.501     5.771    genblk1.data_A[11]_i_1_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.319     4.073 f  genblk1.data_n[3]_i_3/O
+                         net (fo=5, unplaced)         0.477     4.550    genblk1.data_n[3]_i_3_n_0
+                                                                      f  genblk1.data_A[11]_i_3/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.674 r  genblk1.data_A[11]_i_3/O
+                         net (fo=1, unplaced)         0.449     5.123    genblk1.data_A[11]_i_3_n_0
+                                                                      r  genblk1.data_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.247 r  genblk1.data_A[11]_i_1/O
+                         net (fo=5, unplaced)         0.501     5.748    genblk1.data_A[11]_i_1_n_0
                          FDCE                                         r  genblk1.data_A_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -860,27 +861,27 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[2]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.data_A_reg[2]
   -------------------------------------------------------------------
                          required time                         12.074    
-                         arrival time                          -5.771    
+                         arrival time                          -5.748    
   -------------------------------------------------------------------
-                         slack                                  6.303    
+                         slack                                  6.326    
 
-Slack (MET) :             6.303ns  (required time - arrival time)
-  Source:                 genblk1.data_n_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             6.326ns  (required time - arrival time)
+  Source:                 genblk1.data_n_reg[1]/C
+                            (rising edge-triggered cell FDPE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.data_A_reg[3]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.315ns  (logic 1.045ns (31.523%)  route 2.270ns (68.477%))
-  Logic Levels:           3  (LUT4=2 LUT6=1)
+  Data Path Delay:        3.292ns  (logic 1.045ns (31.744%)  route 2.247ns (68.256%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -902,20 +903,20 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_n_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDPE                                         r  genblk1.data_n_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_n_reg[2]/Q
-                         net (fo=42, unplaced)        0.819     3.753    in10[4]
+                         FDPE (Prop_fdpe_C_Q)         0.478     2.934 r  genblk1.data_n_reg[1]/Q
+                         net (fo=43, unplaced)        0.820     3.754    in10[3]
                                                                       r  genblk1.data_n[3]_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 f  genblk1.data_n[3]_i_3/O
-                         net (fo=4, unplaced)         0.473     4.545    genblk1.data_n[3]_i_3_n_0
-                                                                      f  genblk1.data_n[3]_i_1/I1
-                         LUT6 (Prop_lut6_I1_O)        0.124     4.669 r  genblk1.data_n[3]_i_1/O
-                         net (fo=5, unplaced)         0.477     5.146    genblk1.data_n
-                                                                      r  genblk1.data_A[11]_i_1/I0
-                         LUT4 (Prop_lut4_I0_O)        0.124     5.270 r  genblk1.data_A[11]_i_1/O
-                         net (fo=5, unplaced)         0.501     5.771    genblk1.data_A[11]_i_1_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.319     4.073 f  genblk1.data_n[3]_i_3/O
+                         net (fo=5, unplaced)         0.477     4.550    genblk1.data_n[3]_i_3_n_0
+                                                                      f  genblk1.data_A[11]_i_3/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.674 r  genblk1.data_A[11]_i_3/O
+                         net (fo=1, unplaced)         0.449     5.123    genblk1.data_A[11]_i_3_n_0
+                                                                      r  genblk1.data_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.247 r  genblk1.data_A[11]_i_1/O
+                         net (fo=5, unplaced)         0.501     5.748    genblk1.data_A[11]_i_1_n_0
                          FDCE                                         r  genblk1.data_A_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -928,27 +929,27 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[3]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.data_A_reg[3]
   -------------------------------------------------------------------
                          required time                         12.074    
-                         arrival time                          -5.771    
+                         arrival time                          -5.748    
   -------------------------------------------------------------------
-                         slack                                  6.303    
+                         slack                                  6.326    
 
-Slack (MET) :             6.303ns  (required time - arrival time)
-  Source:                 genblk1.data_n_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             6.326ns  (required time - arrival time)
+  Source:                 genblk1.data_n_reg[1]/C
+                            (rising edge-triggered cell FDPE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.data_A_reg[4]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.315ns  (logic 1.045ns (31.523%)  route 2.270ns (68.477%))
-  Logic Levels:           3  (LUT4=2 LUT6=1)
+  Data Path Delay:        3.292ns  (logic 1.045ns (31.744%)  route 2.247ns (68.256%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -970,20 +971,20 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_n_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDPE                                         r  genblk1.data_n_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_n_reg[2]/Q
-                         net (fo=42, unplaced)        0.819     3.753    in10[4]
+                         FDPE (Prop_fdpe_C_Q)         0.478     2.934 r  genblk1.data_n_reg[1]/Q
+                         net (fo=43, unplaced)        0.820     3.754    in10[3]
                                                                       r  genblk1.data_n[3]_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 f  genblk1.data_n[3]_i_3/O
-                         net (fo=4, unplaced)         0.473     4.545    genblk1.data_n[3]_i_3_n_0
-                                                                      f  genblk1.data_n[3]_i_1/I1
-                         LUT6 (Prop_lut6_I1_O)        0.124     4.669 r  genblk1.data_n[3]_i_1/O
-                         net (fo=5, unplaced)         0.477     5.146    genblk1.data_n
-                                                                      r  genblk1.data_A[11]_i_1/I0
-                         LUT4 (Prop_lut4_I0_O)        0.124     5.270 r  genblk1.data_A[11]_i_1/O
-                         net (fo=5, unplaced)         0.501     5.771    genblk1.data_A[11]_i_1_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.319     4.073 f  genblk1.data_n[3]_i_3/O
+                         net (fo=5, unplaced)         0.477     4.550    genblk1.data_n[3]_i_3_n_0
+                                                                      f  genblk1.data_A[11]_i_3/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.674 r  genblk1.data_A[11]_i_3/O
+                         net (fo=1, unplaced)         0.449     5.123    genblk1.data_A[11]_i_3_n_0
+                                                                      r  genblk1.data_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.247 r  genblk1.data_A[11]_i_1/O
+                         net (fo=5, unplaced)         0.501     5.748    genblk1.data_A[11]_i_1_n_0
                          FDCE                                         r  genblk1.data_A_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -996,27 +997,27 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[4]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.data_A_reg[4]
   -------------------------------------------------------------------
                          required time                         12.074    
-                         arrival time                          -5.771    
+                         arrival time                          -5.748    
   -------------------------------------------------------------------
-                         slack                                  6.303    
+                         slack                                  6.326    
 
-Slack (MET) :             6.303ns  (required time - arrival time)
-  Source:                 genblk1.data_n_reg[2]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             6.326ns  (required time - arrival time)
+  Source:                 genblk1.data_n_reg[1]/C
+                            (rising edge-triggered cell FDPE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.data_A_reg[5]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.315ns  (logic 1.045ns (31.523%)  route 2.270ns (68.477%))
-  Logic Levels:           3  (LUT4=2 LUT6=1)
+  Data Path Delay:        3.292ns  (logic 1.045ns (31.744%)  route 2.247ns (68.256%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -1038,20 +1039,20 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_n_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDPE                                         r  genblk1.data_n_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_n_reg[2]/Q
-                         net (fo=42, unplaced)        0.819     3.753    in10[4]
+                         FDPE (Prop_fdpe_C_Q)         0.478     2.934 r  genblk1.data_n_reg[1]/Q
+                         net (fo=43, unplaced)        0.820     3.754    in10[3]
                                                                       r  genblk1.data_n[3]_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 f  genblk1.data_n[3]_i_3/O
-                         net (fo=4, unplaced)         0.473     4.545    genblk1.data_n[3]_i_3_n_0
-                                                                      f  genblk1.data_n[3]_i_1/I1
-                         LUT6 (Prop_lut6_I1_O)        0.124     4.669 r  genblk1.data_n[3]_i_1/O
-                         net (fo=5, unplaced)         0.477     5.146    genblk1.data_n
-                                                                      r  genblk1.data_A[11]_i_1/I0
-                         LUT4 (Prop_lut4_I0_O)        0.124     5.270 r  genblk1.data_A[11]_i_1/O
-                         net (fo=5, unplaced)         0.501     5.771    genblk1.data_A[11]_i_1_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.319     4.073 f  genblk1.data_n[3]_i_3/O
+                         net (fo=5, unplaced)         0.477     4.550    genblk1.data_n[3]_i_3_n_0
+                                                                      f  genblk1.data_A[11]_i_3/I0
+                         LUT6 (Prop_lut6_I0_O)        0.124     4.674 r  genblk1.data_A[11]_i_3/O
+                         net (fo=1, unplaced)         0.449     5.123    genblk1.data_A[11]_i_3_n_0
+                                                                      r  genblk1.data_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.247 r  genblk1.data_A[11]_i_1/O
+                         net (fo=5, unplaced)         0.501     5.748    genblk1.data_A[11]_i_1_n_0
                          FDCE                                         r  genblk1.data_A_reg[5]/CE
   -------------------------------------------------------------------    -------------------
 
@@ -1064,18 +1065,18 @@ Slack (MET) :             6.303ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[5]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.data_A_reg[5]
   -------------------------------------------------------------------
                          required time                         12.074    
-                         arrival time                          -5.771    
+                         arrival time                          -5.748    
   -------------------------------------------------------------------
-                         slack                                  6.303    
+                         slack                                  6.326    
 
-Slack (MET) :             6.337ns  (required time - arrival time)
+Slack (MET) :             6.345ns  (required time - arrival time)
   Source:                 genblk1.sm_tdata_reg[1]/C
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            genblk1.sm_tdata_reg[23]/D
@@ -1083,7 +1084,7 @@ Slack (MET) :             6.337ns  (required time - arrival time)
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.527ns  (logic 2.412ns (68.387%)  route 1.115ns (31.613%))
+  Data Path Delay:        3.519ns  (logic 2.404ns (68.315%)  route 1.115ns (31.685%))
   Logic Levels:           8  (CARRY4=6 LUT2=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
@@ -1106,7 +1107,7 @@ Slack (MET) :             6.337ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.sm_tdata_reg[1]/Q
@@ -1139,8 +1140,8 @@ Slack (MET) :             6.337ns  (required time - arrival time)
                                                       0.331     5.058 r  genblk1.sm_tdata_reg[23]_i_2/O[3]
                          net (fo=1, unplaced)         0.618     5.676    in14[23]
                                                                       r  genblk1.sm_tdata[23]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.307     5.983 r  genblk1.sm_tdata[23]_i_1/O
-                         net (fo=1, unplaced)         0.000     5.983    genblk1.sm_tdata[23]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.299     5.975 r  genblk1.sm_tdata[23]_i_1/O
+                         net (fo=1, unplaced)         0.000     5.975    genblk1.sm_tdata[23]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[23]/D
   -------------------------------------------------------------------    -------------------
 
@@ -1153,16 +1154,16 @@ Slack (MET) :             6.337ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[23]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
                          FDCE (Setup_fdce_C_D)        0.044    12.320    genblk1.sm_tdata_reg[23]
   -------------------------------------------------------------------
                          required time                         12.320    
-                         arrival time                          -5.983    
+                         arrival time                          -5.975    
   -------------------------------------------------------------------
-                         slack                                  6.337    
+                         slack                                  6.345    
 
 Slack (MET) :             6.358ns  (required time - arrival time)
   Source:                 genblk1.sm_tdata_reg[1]/C
@@ -1195,7 +1196,7 @@ Slack (MET) :             6.358ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.sm_tdata_reg[1]/Q
@@ -1250,7 +1251,7 @@ Slack (MET) :             6.358ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[30]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
@@ -1261,16 +1262,16 @@ Slack (MET) :             6.358ns  (required time - arrival time)
   -------------------------------------------------------------------
                          slack                                  6.358    
 
-Slack (MET) :             6.404ns  (required time - arrival time)
-  Source:                 genblk1.sm_tdata_reg[1]/C
+Slack (MET) :             6.368ns  (required time - arrival time)
+  Source:                 genblk1.rvalid_reg/C
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            genblk1.sm_tdata_reg[29]/D
+  Destination:            genblk1.tap_A_reg[0]/CE
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (axis_clk rise@10.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        3.460ns  (logic 2.651ns (76.618%)  route 0.809ns (23.381%))
-  Logic Levels:           10  (CARRY4=8 LUT2=2)
+  Data Path Delay:        3.250ns  (logic 1.021ns (31.415%)  route 2.229ns (68.585%))
+  Logic Levels:           3  (LUT4=1 LUT6=2)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -1292,50 +1293,21 @@ Slack (MET) :             6.404ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.sm_tdata_reg[1]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.rvalid_reg/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.sm_tdata_reg[1]/Q
-                         net (fo=3, unplaced)         0.488     3.422    sm_tdata_OBUF[1]
-                                                                      r  genblk1.sm_tdata[3]_i_5/I0
-                         LUT2 (Prop_lut2_I0_O)        0.295     3.717 r  genblk1.sm_tdata[3]_i_5/O
-                         net (fo=1, unplaced)         0.000     3.717    genblk1.sm_tdata[3]_i_5_n_0
-                                                                      r  genblk1.sm_tdata_reg[3]_i_2/S[1]
-                         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.250 r  genblk1.sm_tdata_reg[3]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.009     4.259    genblk1.sm_tdata_reg[3]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[7]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.376 r  genblk1.sm_tdata_reg[7]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.376    genblk1.sm_tdata_reg[7]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[11]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.493 r  genblk1.sm_tdata_reg[11]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.493    genblk1.sm_tdata_reg[11]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[15]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.610 r  genblk1.sm_tdata_reg[15]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.610    genblk1.sm_tdata_reg[15]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[19]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.727 r  genblk1.sm_tdata_reg[19]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.727    genblk1.sm_tdata_reg[19]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[23]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.844 r  genblk1.sm_tdata_reg[23]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.844    genblk1.sm_tdata_reg[23]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[27]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.961 r  genblk1.sm_tdata_reg[27]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     4.961    genblk1.sm_tdata_reg[27]_i_2_n_0
-                                                                      r  genblk1.sm_tdata_reg[31]_i_2/CI
-                         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.337     5.298 r  genblk1.sm_tdata_reg[31]_i_2/O[1]
-                         net (fo=1, unplaced)         0.312     5.610    in14[29]
-                                                                      r  genblk1.sm_tdata[29]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.306     5.916 r  genblk1.sm_tdata[29]_i_1/O
-                         net (fo=1, unplaced)         0.000     5.916    genblk1.sm_tdata[29]_i_1_n_0
-                         FDCE                                         r  genblk1.sm_tdata_reg[29]/D
+                         FDCE (Prop_fdce_C_Q)         0.478     2.934 f  genblk1.rvalid_reg/Q
+                         net (fo=8, unplaced)         0.779     3.713    rvalid_OBUF
+                                                                      f  genblk1.tap_A[11]_i_10/I1
+                         LUT4 (Prop_lut4_I1_O)        0.295     4.008 r  genblk1.tap_A[11]_i_10/O
+                         net (fo=2, unplaced)         0.430     4.438    genblk1.tap_A[11]_i_10_n_0
+                                                                      r  genblk1.tap_A[11]_i_4/I4
+                         LUT6 (Prop_lut6_I4_O)        0.124     4.562 r  genblk1.tap_A[11]_i_4/O
+                         net (fo=13, unplaced)        0.499     5.061    genblk1.tap_A[11]_i_4_n_0
+                                                                      r  genblk1.tap_A[11]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.124     5.185 r  genblk1.tap_A[11]_i_1/O
+                         net (fo=12, unplaced)        0.521     5.706    genblk1.tap_A[11]_i_1_n_0
+                         FDCE                                         r  genblk1.tap_A_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock axis_clk rise edge)
@@ -1347,16 +1319,16 @@ Slack (MET) :             6.404ns  (required time - arrival time)
                          net (fo=1, unplaced)         0.760    11.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.sm_tdata_reg[29]/C
+                         net (fo=192, unplaced)       0.439    12.128    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.tap_A_reg[0]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
-                         FDCE (Setup_fdce_C_D)        0.044    12.320    genblk1.sm_tdata_reg[29]
+                         FDCE (Setup_fdce_C_CE)      -0.202    12.074    genblk1.tap_A_reg[0]
   -------------------------------------------------------------------
-                         required time                         12.320    
-                         arrival time                          -5.916    
+                         required time                         12.074    
+                         arrival time                          -5.706    
   -------------------------------------------------------------------
-                         slack                                  6.404    
+                         slack                                  6.368    
 
 
 
@@ -1390,7 +1362,7 @@ Slack (MET) :             0.137ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.ap_done_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.ap_done_reg/Q
@@ -1410,7 +1382,7 @@ Slack (MET) :             0.137ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.rdata_reg[1]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.rdata_reg[1]
@@ -1446,7 +1418,7 @@ Slack (MET) :             0.140ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.ap_start_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.ap_start_reg/Q
@@ -1466,7 +1438,7 @@ Slack (MET) :             0.140ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.rdata_reg[0]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.rdata_reg[0]
@@ -1502,7 +1474,7 @@ Slack (MET) :             0.142ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDPE                                         r  genblk1.ap_idle_reg/C
   -------------------------------------------------------------------    -------------------
                          FDPE (Prop_fdpe_C_Q)         0.147     0.825 r  genblk1.ap_idle_reg/Q
@@ -1522,7 +1494,7 @@ Slack (MET) :             0.142ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.rdata_reg[2]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.rdata_reg[2]
@@ -1531,6 +1503,62 @@ Slack (MET) :             0.142ns  (arrival time - required time)
                          arrival time                           1.064    
   -------------------------------------------------------------------
                          slack                                  0.142    
+
+Slack (MET) :             0.144ns  (arrival time - required time)
+  Source:                 genblk1.data_WE_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            genblk1.data_WE_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             axis_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
+  Data Path Delay:        0.388ns  (logic 0.245ns (63.161%)  route 0.143ns (36.839%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.032ns
+    Source Clock Delay      (SCD):    0.678ns
+    Clock Pessimism Removal (CPR):    0.210ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.data_WE_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_WE_reg[0]/Q
+                         net (fo=5, unplaced)         0.143     0.967    data_WE_OBUF[0]
+                                                                      r  genblk1.data_WE[1]_i_1/I3
+                         LUT4 (Prop_lut4_I3_O)        0.098     1.065 r  genblk1.data_WE[1]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.065    genblk1.data_WE[1]_i_1_n_0
+                         FDCE                                         r  genblk1.data_WE_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.data_WE_reg[1]/C
+                         clock pessimism             -0.210     0.823    
+                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.data_WE_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.922    
+                         arrival time                           1.065    
+  -------------------------------------------------------------------
+                         slack                                  0.144    
 
 Slack (MET) :             0.144ns  (arrival time - required time)
   Source:                 genblk1.idx_reg_reg[2]/C
@@ -1558,7 +1586,7 @@ Slack (MET) :             0.144ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[2]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.idx_reg_reg[2]/Q
@@ -1578,10 +1606,66 @@ Slack (MET) :             0.144ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[2]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.idx_reg_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -0.922    
+                         arrival time                           1.065    
+  -------------------------------------------------------------------
+                         slack                                  0.144    
+
+Slack (MET) :             0.144ns  (arrival time - required time)
+  Source:                 genblk1.tap_WE_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            genblk1.tap_WE_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             axis_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
+  Data Path Delay:        0.388ns  (logic 0.245ns (63.161%)  route 0.143ns (36.839%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.032ns
+    Source Clock Delay      (SCD):    0.678ns
+    Clock Pessimism Removal (CPR):    0.210ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.tap_WE_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.147     0.825 f  genblk1.tap_WE_reg[0]/Q
+                         net (fo=5, unplaced)         0.143     0.967    tap_WE_OBUF[0]
+                                                                      f  genblk1.tap_WE[0]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.098     1.065 r  genblk1.tap_WE[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.065    genblk1.tap_WE[0]_i_1_n_0
+                         FDCE                                         r  genblk1.tap_WE_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.tap_WE_reg[0]/C
+                         clock pessimism             -0.210     0.823    
+                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.tap_WE_reg[0]
   -------------------------------------------------------------------
                          required time                         -0.922    
                          arrival time                           1.065    
@@ -1614,7 +1698,7 @@ Slack (MET) :             0.145ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[3]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.idx_reg_reg[3]/Q
@@ -1634,7 +1718,7 @@ Slack (MET) :             0.145ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[3]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.idx_reg_reg[3]
@@ -1644,10 +1728,66 @@ Slack (MET) :             0.145ns  (arrival time - required time)
   -------------------------------------------------------------------
                          slack                                  0.145    
 
-Slack (MET) :             0.147ns  (arrival time - required time)
-  Source:                 genblk1.arready_reg/C
+Slack (MET) :             0.146ns  (arrival time - required time)
+  Source:                 genblk1.data_length_reg[3]/C
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            genblk1.arready_reg/D
+  Destination:            genblk1.data_length_reg[3]/D
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             axis_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
+  Data Path Delay:        0.390ns  (logic 0.245ns (62.888%)  route 0.145ns (37.112%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.032ns
+    Source Clock Delay      (SCD):    0.678ns
+    Clock Pessimism Removal (CPR):    0.210ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.data_length_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_length_reg[3]/Q
+                         net (fo=6, unplaced)         0.145     0.969    genblk1.data_length_reg[3]
+                                                                      r  genblk1.data_length[3]_i_1/I5
+                         LUT6 (Prop_lut6_I5_O)        0.098     1.067 r  genblk1.data_length[3]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.067    p_0_in__0[3]
+                         FDCE                                         r  genblk1.data_length_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock axis_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  axis_clk (IN)
+                         net (fo=0)                   0.000     0.000    axis_clk
+                                                                      r  axis_clk_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
+                                                                      r  axis_clk_IBUF_BUFG_inst/I
+                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.data_length_reg[3]/C
+                         clock pessimism             -0.210     0.823    
+                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.data_length_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -0.922    
+                         arrival time                           1.067    
+  -------------------------------------------------------------------
+                         slack                                  0.146    
+
+Slack (MET) :             0.147ns  (arrival time - required time)
+  Source:                 genblk1.awready_reg/C
+                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            genblk1.awready_reg/D
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             axis_clk
   Path Type:              Hold (Min at Fast Process Corner)
@@ -1670,15 +1810,15 @@ Slack (MET) :             0.147ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.arready_reg/C
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.awready_reg/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.arready_reg/Q
-                         net (fo=7, unplaced)         0.146     0.970    arready_OBUF
-                                                                      r  genblk1.arready_i_1/I3
-                         LUT4 (Prop_lut4_I3_O)        0.098     1.068 r  genblk1.arready_i_1/O
-                         net (fo=1, unplaced)         0.000     1.068    genblk1.arready_i_1_n_0
-                         FDCE                                         r  genblk1.arready_reg/D
+                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.awready_reg/Q
+                         net (fo=7, unplaced)         0.146     0.970    awready_OBUF
+                                                                      r  genblk1.awready_i_1/I3
+                         LUT4 (Prop_lut4_I3_O)        0.098     1.068 r  genblk1.awready_i_1/O
+                         net (fo=1, unplaced)         0.000     1.068    genblk1.awready_i_1_n_0
+                         FDCE                                         r  genblk1.awready_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock axis_clk rise edge)
@@ -1690,10 +1830,10 @@ Slack (MET) :             0.147ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.arready_reg/C
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.awready_reg/C
                          clock pessimism             -0.210     0.823    
-                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.arready_reg
+                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.awready_reg
   -------------------------------------------------------------------
                          required time                         -0.922    
                          arrival time                           1.068    
@@ -1726,7 +1866,7 @@ Slack (MET) :             0.147ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 f  genblk1.idx_reg_reg[0]/Q
@@ -1746,7 +1886,7 @@ Slack (MET) :             0.147ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.idx_reg_reg[0]/C
                          clock pessimism             -0.210     0.823    
                          FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.idx_reg_reg[0]
@@ -1755,174 +1895,6 @@ Slack (MET) :             0.147ns  (arrival time - required time)
                          arrival time                           1.068    
   -------------------------------------------------------------------
                          slack                                  0.147    
-
-Slack (MET) :             0.148ns  (arrival time - required time)
-  Source:                 genblk1.rvalid_reg/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            genblk1.rvalid_reg/D
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             axis_clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        0.392ns  (logic 0.245ns (62.482%)  route 0.147ns (37.518%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.032ns
-    Source Clock Delay      (SCD):    0.678ns
-    Clock Pessimism Removal (CPR):    0.210ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.rvalid_reg/C
-  -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.rvalid_reg/Q
-                         net (fo=8, unplaced)         0.147     0.972    rvalid_OBUF
-                                                                      r  genblk1.rvalid_i_1/I3
-                         LUT4 (Prop_lut4_I3_O)        0.098     1.070 r  genblk1.rvalid_i_1/O
-                         net (fo=1, unplaced)         0.000     1.070    genblk1.rvalid_i_1_n_0
-                         FDCE                                         r  genblk1.rvalid_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.rvalid_reg/C
-                         clock pessimism             -0.210     0.823    
-                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.rvalid_reg
-  -------------------------------------------------------------------
-                         required time                         -0.922    
-                         arrival time                           1.070    
-  -------------------------------------------------------------------
-                         slack                                  0.148    
-
-Slack (MET) :             0.149ns  (arrival time - required time)
-  Source:                 genblk1.awready_reg/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            genblk1.awready_reg/D
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             axis_clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        0.393ns  (logic 0.245ns (62.282%)  route 0.148ns (37.718%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.032ns
-    Source Clock Delay      (SCD):    0.678ns
-    Clock Pessimism Removal (CPR):    0.210ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.awready_reg/C
-  -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.awready_reg/Q
-                         net (fo=9, unplaced)         0.148     0.973    awready_OBUF
-                                                                      r  genblk1.awready_i_1/I3
-                         LUT4 (Prop_lut4_I3_O)        0.098     1.071 r  genblk1.awready_i_1/O
-                         net (fo=1, unplaced)         0.000     1.071    genblk1.awready_i_1_n_0
-                         FDCE                                         r  genblk1.awready_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.awready_reg/C
-                         clock pessimism             -0.210     0.823    
-                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.awready_reg
-  -------------------------------------------------------------------
-                         required time                         -0.922    
-                         arrival time                           1.071    
-  -------------------------------------------------------------------
-                         slack                                  0.149    
-
-Slack (MET) :             0.155ns  (arrival time - required time)
-  Source:                 genblk1.data_validNum_reg[0]/C
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            genblk1.data_validNum_reg[0]/D
-                            (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             axis_clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (axis_clk rise@0.000ns - axis_clk rise@0.000ns)
-  Data Path Delay:        0.399ns  (logic 0.245ns (61.426%)  route 0.154ns (38.574%))
-  Logic Levels:           1  (LUT1=1)
-  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.032ns
-    Source Clock Delay      (SCD):    0.678ns
-    Clock Pessimism Removal (CPR):    0.210ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.200     0.200 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_validNum_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.147     0.825 f  genblk1.data_validNum_reg[0]/Q
-                         net (fo=16, unplaced)        0.154     0.978    genblk1.data_validNum_reg[0]
-                                                                      f  genblk1.data_validNum[0]_i_1/I0
-                         LUT1 (Prop_lut1_I0_O)        0.098     1.076 r  genblk1.data_validNum[0]_i_1/O
-                         net (fo=1, unplaced)         0.000     1.076    genblk1.isFIRReady1[0]
-                         FDCE                                         r  genblk1.data_validNum_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock axis_clk rise edge)
-                                                      0.000     0.000 r  
-                                                      0.000     0.000 r  axis_clk (IN)
-                         net (fo=0)                   0.000     0.000    axis_clk
-                                                                      r  axis_clk_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.389     0.389 r  axis_clk_IBUF_inst/O
-                         net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
-                                                                      r  axis_clk_IBUF_BUFG_inst/I
-                         BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_validNum_reg[0]/C
-                         clock pessimism             -0.210     0.823    
-                         FDCE (Hold_fdce_C_D)         0.099     0.922    genblk1.data_validNum_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -0.922    
-                         arrival time                           1.076    
-  -------------------------------------------------------------------
-                         slack                                  0.155    
 
 
 
@@ -1982,28 +1954,28 @@ Min Delay             1 Endpoint
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 ss_tlast
+  Source:                 ss_tvalid
                             (input port)
   Destination:            ss_tready
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.356ns  (logic 3.756ns (70.135%)  route 1.599ns (29.865%))
-  Logic Levels:           3  (IBUF=1 LUT3=1 OBUF=1)
+  Data Path Delay:        5.322ns  (logic 3.722ns (69.944%)  route 1.599ns (30.056%))
+  Logic Levels:           3  (IBUF=1 LUT2=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                                                      0.000     0.000 f  ss_tlast (IN)
-                         net (fo=0)                   0.000     0.000    ss_tlast
-                                                                      f  ss_tlast_IBUF_inst/I
-                         IBUF (Prop_ibuf_I_O)         0.972     0.972 f  ss_tlast_IBUF_inst/O
-                         net (fo=3, unplaced)         0.800     1.771    ss_tlast_IBUF
-                                                                      f  ss_tready_OBUF_inst_i_1/I1
-                         LUT3 (Prop_lut3_I1_O)        0.150     1.921 r  ss_tready_OBUF_inst_i_1/O
-                         net (fo=1, unplaced)         0.800     2.721    ss_tready_OBUF
+                                                      0.000     0.000 r  ss_tvalid (IN)
+                         net (fo=0)                   0.000     0.000    ss_tvalid
+                                                                      r  ss_tvalid_IBUF_inst/I
+                         IBUF (Prop_ibuf_I_O)         0.972     0.972 r  ss_tvalid_IBUF_inst/O
+                         net (fo=7, unplaced)         0.800     1.771    ss_tvalid_IBUF
+                                                                      r  ss_tready_OBUF_inst_i_1/I1
+                         LUT2 (Prop_lut2_I1_O)        0.116     1.887 r  ss_tready_OBUF_inst_i_1/O
+                         net (fo=1, unplaced)         0.800     2.687    ss_tready_OBUF
                                                                       r  ss_tready_OBUF_inst/I
-                         OBUF (Prop_obuf_I_O)         2.634     5.356 r  ss_tready_OBUF_inst/O
-                         net (fo=0)                   0.000     5.356    ss_tready
+                         OBUF (Prop_obuf_I_O)         2.634     5.322 r  ss_tready_OBUF_inst/O
+                         net (fo=0)                   0.000     5.322    ss_tready
                                                                       r  ss_tready (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -2020,8 +1992,8 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        2.069ns  (logic 1.395ns (67.413%)  route 0.674ns (32.587%))
-  Logic Levels:           3  (IBUF=1 LUT3=1 OBUF=1)
+  Data Path Delay:        2.074ns  (logic 1.400ns (67.492%)  route 0.674ns (32.508%))
+  Logic Levels:           3  (IBUF=1 LUT2=1 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -2029,13 +2001,13 @@ Slack:                    inf
                          net (fo=0)                   0.000     0.000    ss_tvalid
                                                                       r  ss_tvalid_IBUF_inst/I
                          IBUF (Prop_ibuf_I_O)         0.200     0.200 r  ss_tvalid_IBUF_inst/O
-                         net (fo=4, unplaced)         0.337     0.538    ss_tvalid_IBUF
-                                                                      r  ss_tready_OBUF_inst_i_1/I0
-                         LUT3 (Prop_lut3_I0_O)        0.043     0.581 r  ss_tready_OBUF_inst_i_1/O
-                         net (fo=1, unplaced)         0.337     0.918    ss_tready_OBUF
+                         net (fo=7, unplaced)         0.337     0.538    ss_tvalid_IBUF
+                                                                      r  ss_tready_OBUF_inst_i_1/I1
+                         LUT2 (Prop_lut2_I1_O)        0.048     0.586 r  ss_tready_OBUF_inst_i_1/O
+                         net (fo=1, unplaced)         0.337     0.923    ss_tready_OBUF
                                                                       r  ss_tready_OBUF_inst/I
-                         OBUF (Prop_obuf_I_O)         1.151     2.069 r  ss_tready_OBUF_inst/O
-                         net (fo=0)                   0.000     2.069    ss_tready
+                         OBUF (Prop_obuf_I_O)         1.151     2.074 r  ss_tready_OBUF_inst/O
+                         net (fo=0)                   0.000     2.074    ss_tready
                                                                       r  ss_tready (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -2048,21 +2020,21 @@ Path Group:  (none)
 From Clock:  axis_clk
   To Clock:  
 
-Max Delay           164 Endpoints
-Min Delay           164 Endpoints
+Max Delay           166 Endpoints
+Min Delay           166 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 genblk1.data_length_reg[2]/C
+  Source:                 genblk1.isFIRReady_reg/C
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            sm_tlast
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.573ns  (logic 3.555ns (63.796%)  route 2.018ns (36.204%))
+  Data Path Delay:        5.573ns  (logic 3.523ns (63.222%)  route 2.050ns (36.778%))
   Logic Levels:           3  (LUT4=1 LUT5=1 OBUF=1)
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
@@ -2081,16 +2053,16 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
-                         FDCE                                         r  genblk1.data_length_reg[2]/C
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         FDCE                                         r  genblk1.isFIRReady_reg/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.478     2.934 f  genblk1.data_length_reg[2]/Q
-                         net (fo=5, unplaced)         0.769     3.703    genblk1.data_length_reg[2]
-                                                                      f  sm_tlast_OBUF_inst_i_3/I1
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.022 f  sm_tlast_OBUF_inst_i_3/O
-                         net (fo=1, unplaced)         0.449     4.471    sm_tlast_OBUF_inst_i_3_n_0
-                                                                      f  sm_tlast_OBUF_inst_i_1/I1
-                         LUT5 (Prop_lut5_I1_O)        0.124     4.595 r  sm_tlast_OBUF_inst_i_1/O
+                         FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.isFIRReady_reg/Q
+                         net (fo=20, unplaced)        0.801     3.735    sm_tvalid_OBUF
+                                                                      r  sm_tlast_OBUF_inst_i_3/I1
+                         LUT4 (Prop_lut4_I1_O)        0.295     4.030 r  sm_tlast_OBUF_inst_i_3/O
+                         net (fo=1, unplaced)         0.449     4.479    sm_tlast_OBUF_inst_i_3_n_0
+                                                                      r  sm_tlast_OBUF_inst_i_1/I1
+                         LUT5 (Prop_lut5_I1_O)        0.116     4.595 r  sm_tlast_OBUF_inst_i_1/O
                          net (fo=3, unplaced)         0.800     5.395    sm_tlast_OBUF
                                                                       r  sm_tlast_OBUF_inst/I
                          OBUF (Prop_obuf_I_O)         2.634     8.030 r  sm_tlast_OBUF_inst/O
@@ -2105,8 +2077,8 @@ Slack:                    inf
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        4.567ns  (logic 3.399ns (74.433%)  route 1.168ns (25.567%))
-  Logic Levels:           2  (LUT3=1 OBUF=1)
+  Data Path Delay:        4.763ns  (logic 3.433ns (72.084%)  route 1.330ns (27.916%))
+  Logic Levels:           2  (LUT2=1 OBUF=1)
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -2124,17 +2096,17 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.isFIRReady_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.isFIRReady_reg/Q
-                         net (fo=18, unplaced)        0.368     3.302    sm_tvalid_OBUF
-                                                                      r  ss_tready_OBUF_inst_i_1/I2
-                         LUT3 (Prop_lut3_I2_O)        0.287     3.589 r  ss_tready_OBUF_inst_i_1/O
-                         net (fo=1, unplaced)         0.800     4.389    ss_tready_OBUF
+                         net (fo=20, unplaced)        0.530     3.464    sm_tvalid_OBUF
+                                                                      r  ss_tready_OBUF_inst_i_1/I0
+                         LUT2 (Prop_lut2_I0_O)        0.321     3.785 r  ss_tready_OBUF_inst_i_1/O
+                         net (fo=1, unplaced)         0.800     4.585    ss_tready_OBUF
                                                                       r  ss_tready_OBUF_inst/I
-                         OBUF (Prop_obuf_I_O)         2.634     7.024 r  ss_tready_OBUF_inst/O
-                         net (fo=0)                   0.000     7.024    ss_tready
+                         OBUF (Prop_obuf_I_O)         2.634     7.220 r  ss_tready_OBUF_inst/O
+                         net (fo=0)                   0.000     7.220    ss_tready
                                                                       r  ss_tready (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -2164,11 +2136,11 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.arready_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.arready_reg/Q
-                         net (fo=7, unplaced)         0.800     3.734    arready_OBUF
+                         net (fo=8, unplaced)         0.800     3.734    arready_OBUF
                                                                       r  arready_OBUF_inst/I
                          OBUF (Prop_obuf_I_O)         2.809     6.544 r  arready_OBUF_inst/O
                          net (fo=0)                   0.000     6.544    arready
@@ -2201,11 +2173,11 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.awready_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.awready_reg/Q
-                         net (fo=9, unplaced)         0.800     3.734    awready_OBUF
+                         net (fo=7, unplaced)         0.800     3.734    awready_OBUF
                                                                       r  awready_OBUF_inst/I
                          OBUF (Prop_obuf_I_O)         2.809     6.544 r  awready_OBUF_inst/O
                          net (fo=0)                   0.000     6.544    awready
@@ -2238,7 +2210,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[11]/Q
@@ -2275,7 +2247,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[11]/Q
@@ -2312,7 +2284,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[2]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[2]/Q
@@ -2349,7 +2321,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[3]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[3]/Q
@@ -2386,7 +2358,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[4]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[4]/Q
@@ -2423,7 +2395,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.800     1.771    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.584     2.456    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[5]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.478     2.934 r  genblk1.data_A_reg[5]/Q
@@ -2466,11 +2438,11 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.arready_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.arready_reg/Q
-                         net (fo=7, unplaced)         0.337     1.162    arready_OBUF
+                         net (fo=8, unplaced)         0.337     1.162    arready_OBUF
                                                                       r  arready_OBUF_inst/I
                          OBUF (Prop_obuf_I_O)         1.205     2.367 r  arready_OBUF_inst/O
                          net (fo=0)                   0.000     2.367    arready
@@ -2503,11 +2475,11 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.awready_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.awready_reg/Q
-                         net (fo=9, unplaced)         0.337     1.162    awready_OBUF
+                         net (fo=7, unplaced)         0.337     1.162    awready_OBUF
                                                                       r  awready_OBUF_inst/I
                          OBUF (Prop_obuf_I_O)         1.205     2.367 r  awready_OBUF_inst/O
                          net (fo=0)                   0.000     2.367    awready
@@ -2540,7 +2512,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[11]/Q
@@ -2577,7 +2549,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[11]/Q
@@ -2614,7 +2586,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[2]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[2]/Q
@@ -2651,7 +2623,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[3]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[3]/Q
@@ -2688,7 +2660,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[4]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[4]/Q
@@ -2725,7 +2697,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[5]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[5]/Q
@@ -2762,7 +2734,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[11]/Q
@@ -2799,7 +2771,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.337     0.538    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.114     0.678    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.data_A_reg[11]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.147     0.825 r  genblk1.data_A_reg[11]/Q
@@ -2819,8 +2791,8 @@ Path Group:  (none)
 From Clock:  
   To Clock:  axis_clk
 
-Max Delay           453 Endpoints
-Min Delay           453 Endpoints
+Max Delay           459 Endpoints
+Min Delay           459 Endpoints
 --------------------------------------------------------------------------------------
 
 
@@ -2901,7 +2873,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[31]/C
 
 Slack:                    inf
@@ -2911,7 +2883,7 @@ Slack:                    inf
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
-  Data Path Delay:        11.734ns  (logic 8.835ns (75.291%)  route 2.899ns (24.709%))
+  Data Path Delay:        11.726ns  (logic 8.827ns (75.274%)  route 2.899ns (24.726%))
   Logic Levels:           10  (CARRY4=4 DSP48E1=2 IBUF=1 LUT2=3)
   Clock Path Skew:        2.128ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns
@@ -2961,8 +2933,8 @@ Slack:                    inf
                                                       0.331    10.809 r  genblk1.sm_tdata_reg[27]_i_2/O[3]
                          net (fo=1, unplaced)         0.618    11.427    in14[27]
                                                                       r  genblk1.sm_tdata[27]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.307    11.734 r  genblk1.sm_tdata[27]_i_1/O
-                         net (fo=1, unplaced)         0.000    11.734    genblk1.sm_tdata[27]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.299    11.726 r  genblk1.sm_tdata[27]_i_1/O
+                         net (fo=1, unplaced)         0.000    11.726    genblk1.sm_tdata[27]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[27]/D
   -------------------------------------------------------------------    -------------------
 
@@ -2975,7 +2947,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[27]/C
 
 Slack:                    inf
@@ -3053,7 +3025,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[30]/C
 
 Slack:                    inf
@@ -3131,7 +3103,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[29]/C
 
 Slack:                    inf
@@ -3141,7 +3113,7 @@ Slack:                    inf
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
-  Data Path Delay:        11.504ns  (logic 8.614ns (74.875%)  route 2.890ns (25.125%))
+  Data Path Delay:        11.496ns  (logic 8.606ns (74.857%)  route 2.890ns (25.143%))
   Logic Levels:           9  (CARRY4=3 DSP48E1=2 IBUF=1 LUT2=3)
   Clock Path Skew:        2.128ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns
@@ -3187,8 +3159,8 @@ Slack:                    inf
                                                       0.331    10.579 r  genblk1.sm_tdata_reg[23]_i_2/O[3]
                          net (fo=1, unplaced)         0.618    11.197    in14[23]
                                                                       r  genblk1.sm_tdata[23]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.307    11.504 r  genblk1.sm_tdata[23]_i_1/O
-                         net (fo=1, unplaced)         0.000    11.504    genblk1.sm_tdata[23]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.299    11.496 r  genblk1.sm_tdata[23]_i_1/O
+                         net (fo=1, unplaced)         0.000    11.496    genblk1.sm_tdata[23]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[23]/D
   -------------------------------------------------------------------    -------------------
 
@@ -3201,7 +3173,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[23]/C
 
 Slack:                    inf
@@ -3275,7 +3247,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[26]/C
 
 Slack:                    inf
@@ -3349,7 +3321,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[25]/C
 
 Slack:                    inf
@@ -3359,7 +3331,7 @@ Slack:                    inf
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
-  Data Path Delay:        11.425ns  (logic 8.833ns (77.309%)  route 2.592ns (22.691%))
+  Data Path Delay:        11.433ns  (logic 8.841ns (77.325%)  route 2.592ns (22.675%))
   Logic Levels:           11  (CARRY4=5 DSP48E1=2 IBUF=1 LUT2=3)
   Clock Path Skew:        2.128ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns
@@ -3413,8 +3385,8 @@ Slack:                    inf
                                                       0.232    10.827 r  genblk1.sm_tdata_reg[31]_i_2/O[0]
                          net (fo=1, unplaced)         0.311    11.138    in14[28]
                                                                       r  genblk1.sm_tdata[28]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.287    11.425 r  genblk1.sm_tdata[28]_i_1/O
-                         net (fo=1, unplaced)         0.000    11.425    genblk1.sm_tdata[28]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.295    11.433 r  genblk1.sm_tdata[28]_i_1/O
+                         net (fo=1, unplaced)         0.000    11.433    genblk1.sm_tdata[28]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[28]/D
   -------------------------------------------------------------------    -------------------
 
@@ -3427,7 +3399,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[28]/C
 
 Slack:                    inf
@@ -3437,7 +3409,7 @@ Slack:                    inf
                             (rising edge-triggered cell FDCE clocked by axis_clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
-  Data Path Delay:        11.308ns  (logic 8.716ns (77.075%)  route 2.592ns (22.925%))
+  Data Path Delay:        11.316ns  (logic 8.724ns (77.091%)  route 2.592ns (22.909%))
   Logic Levels:           10  (CARRY4=4 DSP48E1=2 IBUF=1 LUT2=3)
   Clock Path Skew:        2.128ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns
@@ -3487,8 +3459,8 @@ Slack:                    inf
                                                       0.232    10.710 r  genblk1.sm_tdata_reg[27]_i_2/O[0]
                          net (fo=1, unplaced)         0.311    11.021    in14[24]
                                                                       r  genblk1.sm_tdata[24]_i_1/I1
-                         LUT2 (Prop_lut2_I1_O)        0.287    11.308 r  genblk1.sm_tdata[24]_i_1/O
-                         net (fo=1, unplaced)         0.000    11.308    genblk1.sm_tdata[24]_i_1_n_0
+                         LUT2 (Prop_lut2_I1_O)        0.295    11.316 r  genblk1.sm_tdata[24]_i_1/O
+                         net (fo=1, unplaced)         0.000    11.316    genblk1.sm_tdata[24]_i_1_n_0
                          FDCE                                         r  genblk1.sm_tdata_reg[24]/D
   -------------------------------------------------------------------    -------------------
 
@@ -3501,7 +3473,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[24]/C
 
 Slack:                    inf
@@ -3571,7 +3543,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.760     1.598    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.091     1.689 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.439     2.128    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.sm_tdata_reg[22]/C
 
 
@@ -3613,7 +3585,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[0]/C
 
 Slack:                    inf
@@ -3649,7 +3621,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[10]/C
 
 Slack:                    inf
@@ -3685,7 +3657,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[11]/C
 
 Slack:                    inf
@@ -3721,7 +3693,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[12]/C
 
 Slack:                    inf
@@ -3757,7 +3729,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[13]/C
 
 Slack:                    inf
@@ -3793,7 +3765,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[14]/C
 
 Slack:                    inf
@@ -3829,7 +3801,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[15]/C
 
 Slack:                    inf
@@ -3865,7 +3837,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[16]/C
 
 Slack:                    inf
@@ -3901,7 +3873,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[17]/C
 
 Slack:                    inf
@@ -3937,7 +3909,7 @@ Slack:                    inf
                          net (fo=1, unplaced)         0.355     0.744    axis_clk_IBUF
                                                                       r  axis_clk_IBUF_BUFG_inst/I
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  axis_clk_IBUF_BUFG_inst/O
-                         net (fo=190, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
+                         net (fo=192, unplaced)       0.259     1.032    axis_clk_IBUF_BUFG
                          FDCE                                         r  genblk1.tap_Di_reg[18]/C
 
 
