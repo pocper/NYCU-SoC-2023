@@ -273,7 +273,7 @@ begin
             case({awvalid, awready, wvalid, wready})
             4'b1000: begin
                 if(awaddr>=ADDR_tap_param)
-                    tap_A <= (awaddr-ADDR_tap_param)<<2;
+                    tap_A <= (awaddr-ADDR_tap_param);
             end
             4'b1100: begin
                 if(awaddr>=ADDR_tap_param)
@@ -299,7 +299,7 @@ begin
                 4'b1000: begin
                     tap_EN <= 1;
                     if(araddr>=ADDR_tap_param)
-                        tap_A <= (araddr-ADDR_tap_param)<<2;
+                        tap_A <= (araddr-ADDR_tap_param);
                 end
                 4'b0011: tap_EN <= 0;
             endcase
@@ -356,7 +356,7 @@ begin
     // Source(master) / simulation(slave)
     always @(*) begin
         ss_tready = 0;
-        if({ss_tvalid, ss_tready, ss_tlast}==3'b100)
+        if({ss_tvalid, ss_tready}==3'b10)
             ss_tready = isFIRReady;
     end
 
