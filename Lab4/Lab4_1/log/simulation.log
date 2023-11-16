@@ -1,0 +1,22 @@
+Reading ./testbench/counter_la_fir.hex
+./testbench/counter_la_fir.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile ./testbench/counter_la_fir.vcd opened for output.
+Times =  0, checkbits[dec] =     -1, checkbits[hex] = ffff
+Times =  1, checkbits[dec] =      0, checkbits[hex] = 0000
+Times =  2, checkbits[dec] = -21696, checkbits[hex] = ab40
+LA Test 1 started
+Times =  3, checkbits[dec] =      0, checkbits[hex] = 0000
+Times =  4, checkbits[dec] =    -10, checkbits[hex] = fff6
+Times =  5, checkbits[dec] =    -29, checkbits[hex] = ffe3
+Times =  6, checkbits[dec] =    -25, checkbits[hex] = ffe7
+Times =  7, checkbits[dec] =     35, checkbits[hex] = 0023
+Times =  8, checkbits[dec] =    158, checkbits[hex] = 009e
+Times =  9, checkbits[dec] =    337, checkbits[hex] = 0151
+Times = 10, checkbits[dec] =    539, checkbits[hex] = 021b
+Times = 11, checkbits[dec] =    732, checkbits[hex] = 02dc
+Times = 12, checkbits[dec] =    915, checkbits[hex] = 0393
+Times = 13, checkbits[dec] =   1098, checkbits[hex] = 044a
+Times = 14, checkbits[dec] = -21679, checkbits[hex] = ab51
+LA Test 2 passed
+./testbench/counter_la_fir_tb.v:73: $finish called at 3698212500 (1ps)

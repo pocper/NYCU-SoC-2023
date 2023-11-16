@@ -1,0 +1,26 @@
+Reading ./testbench/counter_la_fir.hex
+./testbench/counter_la_fir.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile ./testbench/4-2.vcd opened for output.
+----- Times# 1 -----
+Start latency-timer
+Stop latency-timer
+Elapsed time:     959150 [ns]
+--------------------
+Correct, ans = 118, golden_ans = 118
+
+----- Times# 2 -----
+Start latency-timer
+Stop latency-timer
+Elapsed time:     970900 [ns]
+--------------------
+Correct, ans = 118, golden_ans = 118
+
+----- Times# 3 -----
+Start latency-timer
+Stop latency-timer
+Elapsed time:     970900 [ns]
+--------------------
+Correct, ans = 118, golden_ans = 118
+
+./testbench/counter_la_fir_tb.v:135: $finish called at 4542662500 (1ps)
