@@ -122,8 +122,6 @@ exmem u1 (
     .wbs_dat_i(wbs_dat_i),
     .wbs_ack_o(wbs_ack_o_exmem),
     .wbs_dat_o(wbs_dat_o_exmem)
-    // .wbs_ack_o(wbs_ack_o),
-    // .wbs_dat_o(wbs_dat_o)
 );
 
 uart u2 (

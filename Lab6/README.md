@@ -32,9 +32,11 @@ make
 
 ## Verification with Vivado
 ### Synthesis and Generate bitstream
-<!-- ```sh
+```sh
+cp ~/Lab6/rtl/user/*.v ~/Lab6/vivado/vvd_srcs/caravel_soc/rtl/user/
 cd ~/Lab6/vivado
 make
-``` -->
+cp ~/Lab6/testbench/integrate/integrate.hex ~/Lab6/vivado/jupyter_notebook
+```
 
 
