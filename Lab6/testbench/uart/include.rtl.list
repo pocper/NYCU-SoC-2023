@@ -3,13 +3,15 @@
 -v ../../rtl/header/user_defines.v
 
 ## User project
--v ../../rtl/user/user_proj_wrapper_uart.v
+-v ../../rtl/user/user_project_wrapper.v
+
+-v ../../rtl/user/exmem.v
+-v ../../rtl/user/bram.v
+
 -v ../../rtl/user/uart.v
 -v ../../rtl/user/uart_tx.v
 -v ../../rtl/user/uart_rx.v 
 -v ../../rtl/user/uart_ctrl.v
-##-v ../../rtl/user/user_project_wrapper.v
-##-v ../../rtl/user/user_proj_example.counter.v
 
 ## VIP
 -v ../../vip/tbuart.v

@@ -193,12 +193,10 @@ module uart_tb;
 		@(posedge clock);
 		tx_start = 1;
 		tx_data = 61;
-		$display("uart_tb, L193");
+		
 		#50;
 		wait(!tx_busy);
-		$display("uart_tb, L196");
 		tx_start = 0;
-		$display("uart_tb, L198");
 		$display("tx complete 2");
 		
 	end endtask
