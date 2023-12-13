@@ -39,13 +39,9 @@ extern void uart_write_string();
 extern void uart_reset_write_fifo();
 extern int uart_isr();
 extern int uart_read();
-
 void main()
 {
-#ifdef USER_PROJ_IRQ0_EN
-    int mask;
-#endif
-    reg_wb_enable = 1;
+	reg_wb_enable = 1;
 
     reg_mprj_io_31 = GPIO_MODE_MGMT_STD_OUTPUT;
     reg_mprj_io_30 = GPIO_MODE_MGMT_STD_OUTPUT;
@@ -82,6 +78,17 @@ void main()
     reg_mprj_io_6  = GPIO_MODE_USER_STD_OUTPUT;
     reg_mprj_io_5  = GPIO_MODE_USER_STD_INPUT_NOPULL;
 
+#ifdef USER_PROJ_IRQ0_EN
+    int mask;
+	// unmask USER_IRQ_0_INTERRUPT
+	mask = irq_getmask();
+	mask |= 1 << USER_IRQ_0_INTERRUPT; // USER_IRQ_0_INTERRUPT = 2
+	mask |= 1 << USER_IRQ_1_INTERRUPT; // USER_IRQ_0_INTERRUPT = 3
+	irq_setmask(mask);
+	// enable user_irq_0_ev_enable
+	user_irq_0_ev_enable_write(1);
+	user_irq_1_ev_enable_write(1);
+#endif
 
 	/* Apply configuration */
 	reg_mprj_xfer = 1;
@@ -96,58 +103,44 @@ void main()
 
 	
 	int *tmp;
-	
 	// Matrix Multiplication
-	reg_mprj_datal = 0xAB400000; // Start Flag
+	reg_mprj_datal = reg_la1_data = 0xAB110000; // Start Flag
 	tmp = matmul();
-	reg_mprj_datal = *tmp << 16;      // matmul[0] = 62
-	reg_mprj_datal = *(tmp+1) << 16;  // matmul[1] = 68
-	reg_mprj_datal = *(tmp+2) << 16;  // matmul[2] = 74
-	reg_mprj_datal = *(tmp+3) << 16;  // matmul[3] = 80	
-	reg_mprj_datal = 0xAB510000; // End Flag
+	reg_mprj_datal = reg_la1_data = *tmp << 16;      // matmul[0] = 62
+	reg_mprj_datal = reg_la1_data = *(tmp+1) << 16;  // matmul[1] = 68
+	reg_mprj_datal = reg_la1_data = *(tmp+2) << 16;  // matmul[2] = 74
+	reg_mprj_datal = reg_la1_data = *(tmp+3) << 16;  // matmul[3] = 80	
+	reg_mprj_datal = reg_la1_data = 0xAB190000; // End Flag
 
 	// Quick Sort
-	reg_mprj_datal = 0xAB400000; // Start Flag
+	reg_mprj_datal = reg_la1_data = 0xAB210000; // Start Flag
 	tmp = qsort();
-	reg_mprj_datal = *tmp << 16;
-	reg_mprj_datal = *(tmp+1) << 16;
-	reg_mprj_datal = *(tmp+2) << 16;
-	reg_mprj_datal = *(tmp+3) << 16;
-	reg_mprj_datal = *(tmp+4) << 16;
-	reg_mprj_datal = *(tmp+5) << 16;
-	reg_mprj_datal = *(tmp+6) << 16;
-	reg_mprj_datal = *(tmp+7) << 16;
-	reg_mprj_datal = *(tmp+8) << 16;
-	reg_mprj_datal = *(tmp+9) << 16;
-	reg_mprj_datal = 0xAB510000; // End Flag
+	reg_mprj_datal = reg_la1_data = *tmp << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+1) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+2) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+3) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+4) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+5) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+6) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+7) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+8) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+9) << 16;
+	reg_mprj_datal = reg_la1_data = 0xAB290000; // End Flag
 
 	// FIR
-	reg_mprj_datal = 0xAB400000; // Start Flag
+	reg_mprj_datal = reg_la1_data = 0xAB310000; // Start Flag
 	tmp = fir();
-	reg_mprj_datal = *tmp << 16;
-	reg_mprj_datal = *(tmp+1) << 16;
-	reg_mprj_datal = *(tmp+2) << 16;
-	reg_mprj_datal = *(tmp+3) << 16;
-	reg_mprj_datal = *(tmp+4) << 16;
-	reg_mprj_datal = *(tmp+5) << 16;
-	reg_mprj_datal = *(tmp+6) << 16;
-	reg_mprj_datal = *(tmp+7) << 16;
-	reg_mprj_datal = *(tmp+8) << 16;
-	reg_mprj_datal = *(tmp+9) << 16;
-	reg_mprj_datal = *(tmp+10) << 16;	
-	reg_mprj_datal = 0xAB510000; // End Flag
-
-	// UART
-	reg_mprj_datal = 0xAB400000; // Start Flag
-	reg_mprj_datal = 0xAB510000; // End Flag
-
-#ifdef USER_PROJ_IRQ0_EN	
-	// unmask USER_IRQ_0_INTERRUPT
-	mask = irq_getmask();
-	mask |= 1 << USER_IRQ_0_INTERRUPT; // USER_IRQ_0_INTERRUPT = 2
-	irq_setmask(mask);
-	// enable user_irq_0_ev_enable
-	user_irq_0_ev_enable_write(1);	
-#endif
+	reg_mprj_datal = reg_la1_data = *tmp << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+1) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+2) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+3) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+4) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+5) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+6) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+7) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+8) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+9) << 16;
+	reg_mprj_datal = reg_la1_data = *(tmp+10) << 16;	
+	reg_mprj_datal = reg_la1_data = 0xAB390000; // End Flag
 }
 

@@ -75,7 +75,7 @@ module user_project_wrapper #(
     input   user_clock2,
 
     // User maskable interrupt signals
-    output [2:0] user_irq
+    output reg [2:0] user_irq
 );
 
 /*--------------------------------------*/
@@ -87,20 +87,37 @@ wire  wbs_ack_o_exmem, wbs_ack_o_uart;
 wire isAddr_UserProject, isAddr_UARTINT;
 assign isAddr_UserProject = (wbs_adr_i[31:16] == 16'h3800);
 assign isAddr_UARTINT     = (wbs_adr_i[31:16] == 16'h3000);
+
+// Decoder wbs_ack_o
 always @(*) begin
-    wbs_ack_o = 32'h0;
     if(isAddr_UserProject)
         wbs_ack_o = wbs_ack_o_exmem;
     else if(isAddr_UARTINT)
         wbs_ack_o = wbs_ack_o_uart;
+    else
+        wbs_ack_o = 32'h0;
 end
 
+// Decoder wbs_dat_o 
 always @(*) begin
-    wbs_dat_o = 32'h0;
     if(isAddr_UserProject)
         wbs_dat_o = wbs_dat_o_exmem;
     else if(isAddr_UARTINT)
         wbs_dat_o = wbs_dat_o_uart;
+    else
+        wbs_dat_o = 32'h0;
+end
+
+reg [31:0]mem_mprj_out;
+wire [2:0] uart_irq;
+always @(posedge wb_clk_i) begin
+    mem_mprj_out <= la_data_in[63:32];
+end
+
+always @(*) begin
+    user_irq[0] = uart_irq[0];
+    user_irq[1] = (la_data_in[63:32] != mem_mprj_out);
+    user_irq[2] = 0;
 end
 
 exmem u1 (
@@ -149,7 +166,7 @@ uart u2 (
     .io_oeb (io_oeb     ),
 
     // irq
-    .user_irq (user_irq)
+    .user_irq (uart_irq)
 );
 
 endmodule	// user_project_wrapper

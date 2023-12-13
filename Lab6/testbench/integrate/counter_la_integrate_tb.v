@@ -64,8 +64,19 @@ module counter_la_integrate_tb;
 	end
 
 	initial begin
+		fork
+			matmul;
+			// qsort;
+			// fir;
+			uart;
+		join
+		$finish;
+	end
+
+	task matmul;
+	begin
 		// Matrix Multiplication
-		wait(checkbits == 16'hAB40); // Start Flag
+		wait(checkbits == 16'hAB11); // Start Flag
 		$display("Test started - Matrix Multiplication");
 		wait(checkbits == 16'h003E); // 62
 		$display("Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);
@@ -75,12 +86,16 @@ module counter_la_integrate_tb;
 		$display("Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);
 		wait(checkbits == 16'h0050); // 80
 		$display("Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);	
-		wait(checkbits == 16'hAB51); // End Flag
+		wait(checkbits == 16'hAB19); // End Flag
 		$display("Test End - Matrix Multiplication");
+	end
+	endtask
 
+	task qsort;
+	begin
 		// Q-sort
 		$display("Test started - Quick Sort");
-		wait(checkbits == 16'hAB40); // Start Flag
+		wait(checkbits == 16'hAB21); // Start Flag
 		wait(checkbits == 16'd40);
 		$display("Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);
 		wait(checkbits == 16'd893);
@@ -89,33 +104,42 @@ module counter_la_integrate_tb;
 		$display("Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);
 		wait(checkbits == 16'd2669);
 		$display("Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x", checkbits);		
-		wait(checkbits == 16'hAB51); // End Flag
+		wait(checkbits == 16'hAB29); // End Flag
 		$display("Test End - Quick Sort");
+	end
+	endtask
 
+	task fir;
+	begin
 		// FIR
 		$display("Test started - FIR");
-		wait(checkbits == 16'hAB40); // Start Flag
-		wait(checkbits == 16'hAB51); // End Flag
+		wait(checkbits == 16'hAB31); // Start Flag
+		wait(checkbits == 16'hAB39); // End Flag
 		$display("Test End - FIR");
-
-		// UART
-		$display("Test started - UART");
-		wait(checkbits == 16'hAB40); // Start Flag
-		send_data_2;
-		wait(checkbits == 16'hAB51); // End Flag
-		$display("Test End - UART");
-		$finish;
 	end
+	endtask
 
-	task send_data_2;begin
+	task uart;
+	begin
+		// UART
+		#100;
+		send_data(8'd61);
+	end
+	endtask
+
+	task send_data(
+		input [7:0] data
+	);
+	begin
 		@(posedge clock);
 		tx_start = 1;
-		tx_data = 61;
+		tx_data = data;
 		#50;
 		wait(!tx_busy);
 		tx_start = 0;
 		$display("tx complete");
-	end endtask
+	end 
+	endtask
 
 	initial begin
 		RSTB <= 1'b0;

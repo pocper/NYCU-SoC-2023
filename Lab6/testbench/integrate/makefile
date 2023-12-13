@@ -11,10 +11,10 @@ Target:
 	@ rm -f *.s *.o *.i *.map
 	@ sed -ie 's/@10/@00/g' integrate.hex
 
-	@ iverilog -Ttyp -DFUNCTIONAL -DSIM -DUNIT_DELAY=#1 \
-		-f./include.rtl.list -o integrate.vvp counter_la_integrate_tb.v 
+	# @ iverilog -Ttyp -DFUNCTIONAL -DSIM -DUNIT_DELAY=#1 \
+	# 	-f./include.rtl.list -o integrate.vvp counter_la_integrate_tb.v 
 
-	@ vvp -l simulation.log integrate.vvp
+	# @ vvp -l simulation.log integrate.vvp
 	@ rm -f *.s *.o *.i *.out *.map *.elf *.hexe *.vvp
 
 .PHONY: clean wv

@@ -11,14 +11,9 @@ extern int uart_read();
 extern char uart_read_char();
 extern char uart_write_char();
 extern int uart_write();
-
 void isr(void);
 
 #ifdef CONFIG_CPU_HAS_INTERRUPT
-
-#ifdef USER_PROJ_IRQ0_EN
-uint32_t counter = 0xFFFF0000;
-#endif
 
 void isr(void)
 {
@@ -36,7 +31,19 @@ void isr(void)
         user_irq_0_ev_pending_write(1); //Clear Interrupt Pending Event
         buf = uart_read();
         uart_write(buf);
+    }
+    
+    uint16_t mprj_31_16;
+    uint8_t mprj_31_24, mprj_23_16;
+    if( irqs & (1 << USER_IRQ_1_INTERRUPT)) {
+        user_irq_1_ev_pending_write(1); //Clear Interrupt Pending Event
+        mprj_31_16 = ((reg_la1_data & 0xFFFF0000) >> 16);
+        mprj_31_24 = ((mprj_31_16 & (0xFF<<8))>>8);
+        mprj_23_16 = ((mprj_31_16 & (0xFF<<0))>>0);
 
+        uart_write(mprj_31_24);
+        uart_write(mprj_23_16);
+        uart_write(0x0a); // "\n"
     }
 #endif
 
