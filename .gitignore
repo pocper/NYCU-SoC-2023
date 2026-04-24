@@ -1,0 +1,10 @@
+log/
+*vcd
+*.vvp
+*.hex
+*.log
+*.map
+*.bit
+*.hwh
+*.autopilot/
+*.debug/
